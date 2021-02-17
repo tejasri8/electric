@@ -1,0 +1,180 @@
+<head>
+  <!--Bootstrap cdn-->
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <!--Fontawesome cdn for icons usage-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
+  <!--title of web page-->
+<title>Welcome</title>
+<!--style section-->
+<style>
+
+.navbar{
+  padding:0;
+}
+.nav>li>a {
+   position: relative; 
+  display: block;
+  padding: 13px 2px;
+}
+.nav>li>a:hover{
+  background-color:rgb(27, 75, 206);
+}
+.btn{
+  background-color:rgb(27, 75, 206) ;
+}
+.element{
+  text-align: center;
+  margin-top: 50px;
+}
+.drop:hover{
+  text-decoration: none;
+}
+.items>li>a:hover{
+  text-decoration: none;
+  color:slateblue;
+}
+.graphscale{
+  margin-left: 10%;
+  margin-top: 10%;
+}
+.table{
+  margin-top:10px;
+  margin-left: 25%;
+}
+.connections{
+ text-align: center;
+  margin-top: 10%;
+}
+#collapseExample3{
+  margin-top: 10%;
+  text-align: center;
+}
+#collapseExample4{
+  margin-top: 10%;
+  text-align: center;
+}
+
+</style>
+</head>
+
+
+<body>
+<!--Navbar Section--> 
+<div class="navbar"  style="background-color: rgb(27, 75, 206);"role="navigation">
+   <div class="container">
+       <!--Company's name in Navbar-->
+       <div>
+           <a class="navbar-brand" style="color:white; font-weight:bold;" href="#">Techlumin AV</a>
+       </div>
+       <!--User Profile Management-->
+       <div  id="top-nav">
+                   <ul class="nav" style="float: right;">
+               <li class="dropdown">
+                   <a href="#" class="dropdown-toggle drop" style="color:white; font-size: large; padding:auto;" data-toggle="dropdown">
+                       <i class="fa fa-user-circle profile"></i> Profile <b class="caret"></b></a>
+                      <!--Account Management-->
+                       <ul class="dropdown-menu items">
+             <!--User Personal Details Management link-->
+             <form action="/profile" method="GET">
+                       <li><a href="/pdetails"><i class="fa fa-user-circle" style="margin-left: 5px;" ></i> Personal Details</a></li>
+                       <li class="dropdown-divider"></li>
+             </form>
+                          <!--User Account ettings link-->
+                       <li><a href="#"><i class="fa fa-cog" style="margin-left: 5px;" ></i> Settings</a></li>
+                                               <li class="dropdown-divider" ></li>    
+                          <!--Use Signout link--> 
+                          <li class="divider"></li>          
+                          <form action="/logout" method="GET">
+
+                              <li>
+                                <button id="signout" name="signout" class="fa fa-sign-out">Signout</button>
+                              </li>
+                
+                            </form>  
+                           
+                   </ul>  
+               </li>
+           </ul>
+       </div> 
+   </div>
+</div>
+<!--Welcome-->
+<h3 style="color:rgb(27, 75, 206); text-align: center;margin-top: 10px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Welcome 
+</h3> 
+<%if(data.show){%>
+  <h1 style="color:rgb(27, 75, 206); text-align: center;margin-top: 10px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><%=data.show%><h1>
+      <%}%>
+<!--User performabble functions-->
+<div class="container" id="myGroup">
+<p class="element">
+   <!--Button to access Data Usage Portal-->
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+      <a>Data Usage <i class="fas fa-chart-line"></i> </a>
+  </button>
+  <!--Button to access Connections Portal-->
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+      <a>Connection <i class="fas fa-plug"></i></a>
+    </button>
+    <!--Button to access Payments portal-->
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">
+      <a>Payment <i class="fas fa-wallet"></i></a>
+    </button>
+    <!--Button to access Costumer Service portal-->
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4">
+      <a>Customer Service <i class="fas fa-hands-helping"></i></a>
+    </button>
+</p>
+<!--Data Usage Portal-->
+<div class="collapse" id="collapseExample1" data-parent="#myGroup">
+    <!--Graph Scale selection button-->
+    <button class="btn btn-primary graphscale">Graph Scale</button>
+    <!--Graph with selected graph scale-->
+    <iframe style="background: #21313C;margin-left:5%;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="550" height="300" src="https://charts.mongodb.com/charts-project-0-hdtxl/embed/charts?id=c92b8016-f563-4a8e-a384-9241c04eca97&autoRefresh=10&theme=dark"></iframe>
+   <!--Table of values with selected graph Scale--> 
+    <table class="table table-striped table-dark col-sm-6">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Day</th>
+          <th scope="col">Units</th>
+          <th scope="col">------</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">12-10-2020</th>
+          <td>Tuesday</td>
+          <td>1000</td>
+          <td>------</td>
+      </tbody>
+    </table>
+  
+</div>
+<!--Connections Portal-->
+<div class="collapse connections" id="collapseExample2"  data-parent="#myGroup">
+   <button class="btn" style="background-color: seagreen; color: white;">Connect</button>
+    <button class="btn" style="background-color: rgb(199, 80, 59); color: white;">Disconnect</button></div>
+<!--Payments portal-->
+<div class="collapse" id="collapseExample3"  data-parent="#myGroup">
+  <button class="btn" style="color: white;">Payment</button>
+</div>
+<!-- Costumer Service portal-->
+<div class="collapse" id="collapseExample4"  data-parent="#myGroup">
+  <button class="btn" style="color:white">Contact</button>
+</div>
+
+</div>
+<!--JavaScript-->
+<script>
+document.getElementsByClassName("drop")[0].addEventListener("click",function()
+{
+  document.getElementsByClassName("drop")[0].style.backgroundColor="rgb(27, 75, 206)";
+});
+
+</script>
+</body>
